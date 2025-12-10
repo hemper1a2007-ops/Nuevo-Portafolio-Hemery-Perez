@@ -1,144 +1,153 @@
-<!DOCTYPE html> <!-- Indica que el documento está escrito en HTML5 -->
-<html lang="es"> <!-- Define el idioma principal del contenido -->
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8" /> <!-- Permite mostrar correctamente acentos y caracteres especiales -->
-  <meta name="description" content="Portafolio" /> <!-- Breve descripción para buscadores -->
-  <meta name="robots" content="index,follow" /> <!-- Indica a los buscadores que pueden indexar y seguir los enlaces -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Hace la web adaptable -->
-  <title>Es mi página</title> <!-- Título que se muestra en la pestaña del navegador -->
+  <meta charset="UTF-8" />
+  <meta name="description" content="Portafolio" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Es mi página</title>
 
-  <!-- Enlace al archivo CSS, ubicado dentro de la carpeta "css" -->
+  <!-- CSS -->
   <link rel="stylesheet" href="./CSS/style.css" />
-  
-
 </head>
 
 <body>
 
-  <!-- Encabezado principal de la página -->
+  <!-- ============================
+       HEADER + MENÚ
+  ============================ -->
   <header>
-    <!-- Título principal del sitio -->
-    <h1>Hemery Ronald Pèrez Correa</h1>
+    <div class="container-header">
+      <h1>Hemery Ronald Pèrez Correa</h1>
 
-    <button class="nav-toggle" aria-controls="menu-principal" aria-expanded="false">
-      <span class="nav-toggle__bar" aria-hidden="true"></span>
-      <span class="nav-toggle__bar" aria-hidden="true"></span>
-      <span class="nav-toggle__bar" aria-hidden="true"></span>
-      <span class="nav-toggle__label">Menú</span>
-    </button>
+      <!-- BOTÓN HAMBURGUESA -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
 
-    <!-- Barra de navegación principal -->
-    <nav id="menu-principal" aria-label="Menú principal"> <!-- aria-label mejora la accesibilidad -->
+    <!-- MENÚ -->
+    <nav id="menu-principal" aria-label="Menú principal">
       <ul>
-        <!-- Cada enlace lleva al ID de una sección -->
-        <!-- <li><a href="#sobre-mi">Sobre mí</a></li>       -->
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#contacto">Contacto</a></li>
-
       </ul>
     </nav>
   </header>
 
-  <!-- Contenido principal -->
+  <!-- ============================
+       CONTENIDO PRINCIPAL
+  ============================ -->
   <main>
-          
-    <!-- Sección personal -->
+
     <section id="sobre-mi">
       <h2>Sobre Mí</h2>
-      <p>Soy un aprendiz del SENA, deseando cambiar mi profesión para poder salir adelante y compartir más con mi familia.
-         También deseo poder trabajar desde casa el mayor tiempo posible.
-         Deseo realizar mis propios proyectos e innovar en el medio de las apps.</p>
+      <p>Soy un aprendiz del SENA, deseando cambiar mi profesión...</p>
     </section>
 
-        <!-- Sección de proyectos (id corregido) -->
     <section id="proyectos">
       <h2>Proyectos</h2>
-      <p>App para la ayuda de personas con capacidad reducida de visión.
-         Para detectar posibles peligros en su medio de desplazamiento.</p>
+      <p>Desarrollo de APP LifeSync, asistente virtual.</p>
+      <p>Desarrollo de APP VisuaLife, ayuda a personas con discapacidad visual.</p>
     </section>
 
-    <!-- Sección de servicios -->
     <section id="servicios">
       <h2>Nuestros Servicios</h2>
-
-      <!-- Cada servicio está dentro de un article -->
       <div class="servicios-grid">
         <article>
           <h3>Desarrollo Web</h3>
-          <p>Construimos páginas modernas con HTML, CSS y JavaScript.</p>
+          <p>Construimos páginas modernas...</p>
         </article>
 
         <article>
           <h3>Consultoría TI</h3>
-          <p>Ayudamos a tu empresa a transformarse digitalmente.</p>
+          <p>Ayudamos a tu empresa...</p>
         </article>
 
         <article>
           <h3>Ciberseguridad</h3>
-          <p>Protegemos tus activos digitales con auditorías y monitoreo continuo.</p>
+          <p>Protegemos tus activos digitales...</p>
         </article>
       </div>
     </section>
 
-    <!-- Sección de contacto -->
+    <!-- ============================
+         CONTACTO / FORMULARIO
+    ============================ -->
     <section id="contacto">
       <h2>Contacto</h2>
-      <p>Completa el formulario y me pondré en contacto contigo lo antes posible.</p>
 
-      <!-- Formulario de contacto -->
-      <form class="contacto-form">
+      <form class="contacto-form" novalidate>
+
         <label for="nombre">Nombre completo</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          placeholder="Tu nombre completo"
+          required
+          autocomplete="name"
+        >
 
         <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" placeholder="tu-email@ejemplo.com" required>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="tu-email@ejemplo.com"
+          required
+          autocomplete="email"
+        >
 
         <label for="telefono">Teléfono (opcional)</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="+57 300 000 0000" pattern="\\+?[0-9\\s-]{7,}">
+        <input
+          type="tel"
+          id="telefono"
+          name="telefono"
+          placeholder="3000000000"
+          pattern="[0-9]{7,10}"
+          maxlength="10"
+          inputmode="numeric"
+          autocomplete="tel"
+        >
 
         <label for="mensaje">Comentarios o proyecto</label>
-        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntame sobre tu idea" required></textarea>
+        <textarea
+          id="mensaje"
+          name="mensaje"
+          rows="4"
+          placeholder="Cuéntame sobre tu idea"
+          required
+        ></textarea>
 
         <button type="submit">Enviar mensaje</button>
+
       </form>
     </section>
+
   </main>
 
+  <!-- ============================
+       FOOTER O PIE DE PAGINA
+  ============================ -->
   <footer>
     <div>
-      <h2>Acerca de</h2>
-      <p>Soy un aprendiz dedicado a la tecnología y la innovación.</p>
-    </div>
-    <div>
-      <h2>Síguenos en:</h2>
-      <ul>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Contacto</h2>
-      <p>Email: hrperez@misena.edu.co</p>
-      <p>Teléfono: 3184874469</p>
-      <p>2025 Realizado por Hemery Perez</p>
+      <h4>Todos los derechos reservados</h4>
+      <p>Hemery R. Pèrez.</p>
     </div>
   </footer>
 
-  <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('#menu-principal');
+  <!-- ============================
+       SCRIPTS
+  ============================ -->
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-    if (navToggle && navMenu) {
-      navToggle.addEventListener('click', () => {
-        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', String(!expanded));
-        navMenu.classList.toggle('is-open');
-
-      });
-    }
-  </script>
+  <!-- Script principal -->
+  <script src="js/main.js"></script>
 
 </body>
 </html>
